@@ -16,7 +16,7 @@
         this._init(element, options);
     }
 
-    Shade.VERSION = '1.0.0';
+    Shade.VERSION = '0.1.0';
 
     Shade.DEFAULTS = {
         cover: document.body,

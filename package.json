@@ -1,6 +1,6 @@
 {
   "name": "shade",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A mobile-first plugin for creating scroll and touch blocking overlays for content",
   "devDependencies": {
     "grunt": "~0.4.x",

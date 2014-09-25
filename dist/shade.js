@@ -14,7 +14,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.0.1';
+    Shade.VERSION = '1.0.2';
 
     Shade.DEFAULTS = {
         cover: document.body,

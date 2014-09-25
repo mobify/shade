@@ -14,7 +14,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.0.1';
+    Shade.VERSION = '1.0.2';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -113,8 +113,8 @@
 
         setPosition: function() {
             var $element = this.$element;
-            var width = this.isBody ? 'auto' : $element.outerWidth(false);
-            var height = this.isBody ? 'auto' : $element.outerHeight(false);
+            var width = this.isBody ? 'auto' : $element.width();
+            var height = this.isBody ? 'auto' : $element.height();
             var position = this.isBody ? 'fixed' : 'absolute';
 
             this.$shade

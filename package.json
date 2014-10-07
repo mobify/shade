@@ -1,6 +1,10 @@
 {
   "name": "shade",
-  "version": "1.0.3",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/mobify/shade.git"
+  },
+  "version": "1.0.4",
   "description": "A mobile-first plugin for creating scroll and touch blocking overlays for content",
   "devDependencies": {
     "grunt": "~0.4.x",

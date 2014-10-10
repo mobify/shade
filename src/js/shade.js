@@ -49,7 +49,7 @@
                 })
                 .hide()
                 .on('click', function() {
-                    plugin.options.click.call(plugin);
+                    plugin.options.click && plugin.options.click.call(plugin);
                 })
                 .insertAfter(this.$element);
 

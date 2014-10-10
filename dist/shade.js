@@ -14,7 +14,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.0.4';
+    Shade.VERSION = '1.0.5';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -49,7 +49,7 @@
                 })
                 .hide()
                 .on('click', function() {
-                    plugin.options.click.call(plugin);
+                    plugin.options.click && plugin.options.click.call(plugin);
                 })
                 .insertAfter(this.$element);
 

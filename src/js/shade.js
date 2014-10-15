@@ -119,10 +119,10 @@
 
             this.$shade
                 .css({
-                    left: this.options.padding ? -this.options.padding : 0,
-                    top: this.options.padding ? -this.options.padding : 0,
-                    bottom: this.options.padding ? -this.options.padding : 0,
-                    right: this.options.padding ? -this.options.padding : 0,
+                    left: this.options.padding ? -this.options.padding : -10,
+                    top: this.options.padding ? -this.options.padding : -10,
+                    bottom: this.options.padding ? -this.options.padding : -10,
+                    right: this.options.padding ? -this.options.padding : -10,
                     width: this.options.padding ? width - this.options.padding : width,
                     height: this.options.padding ? height - this.options.padding : height,
                     position: position,

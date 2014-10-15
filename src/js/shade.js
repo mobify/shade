@@ -24,6 +24,7 @@
         easing: 'swing',
         padding: 0,
         zIndex: 1,
+        cssClass: '',
         click: function() {
             this.close();
         },
@@ -43,6 +44,7 @@
 
             this.$shade = $('<div />')
                 .addClass('shade')
+                .addClass(this.options.cssClass)
                 .css({
                     background: this.options.color ? this.options.color : '',
                     opacity: 0

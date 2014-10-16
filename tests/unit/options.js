@@ -135,7 +135,7 @@ define([
                 var shade = new Shade(element, { cssClass: 'c-class' });
 
                 assert.equal(shade.options.cssClass, 'c-class');
-                assert.isString(shade.options.zIndex);
+                assert.isString(shade.options.cssClass);
             });
 
             it('correctly defines custom click', function() {

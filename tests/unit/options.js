@@ -131,6 +131,13 @@ define([
                 assert.isNumber(shade.options.zIndex);
             });
 
+            it('correctly defines a custom class', function() {
+                var shade = new Shade(element, { cssClass: 'c-class' });
+
+                assert.equal(shade.options.cssClass, 'c-class');
+                assert.isString(shade.options.cssClass);
+            });
+
             it('correctly defines custom click', function() {
                 var click = function() {
                     var that = this;

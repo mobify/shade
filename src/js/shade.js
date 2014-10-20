@@ -18,6 +18,7 @@
 
     Shade.DEFAULTS = {
         cover: document.body,
+        enableTouchmove: false,
         color: 'black',
         opacity: '0.25',
         duration: 150,
@@ -61,6 +62,7 @@
 
         open: function() {
             var plugin = this;
+            var touchMove = this.options.enableTouchmove;
 
             this._trigger('open');
 
@@ -79,7 +81,7 @@
                         plugin.$shade
                             .addClass('shade--is-open')
                             .on('touchmove', function() {
-                                return false;
+                                return touchMove;
                             });
 
                         plugin._trigger('opened');

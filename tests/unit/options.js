@@ -20,6 +20,12 @@ define([
                 assert.isObject(shade.options.cover);
             });
 
+            it('correct defines enableTouchmove', function() {
+                var shade = new Shade(element);
+
+                assert.equal(shade.options.enableTouchmove, Shade.DEFAULTS.enableTouchmove);
+            });
+
             it('correctly defines color', function() {
                 var shade = new Shade(element);
 
@@ -87,6 +93,13 @@ define([
 
                 assert.deepEqual(shade.options.cover, $cover);
                 assert.isArray(shade.options.cover);
+            });
+
+            it('correctly defines enableTouchmove', function() {
+                var shade = new Shade(element, {enableTouchmove: true});
+
+                assert.equal(shade.options.enableTouchmove, true);
+                assert.isBoolean(shade.options.enableTouchmove);
             });
 
             it('correctly defines custom color', function() {

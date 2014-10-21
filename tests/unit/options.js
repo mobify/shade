@@ -20,7 +20,7 @@ define([
                 assert.isObject(shade.options.cover);
             });
 
-            it('correct defines enableTouchmove', function() {
+            it('correctly defines enableTouchmove', function() {
                 var shade = new Shade(element);
 
                 assert.equal(shade.options.enableTouchmove, Shade.DEFAULTS.enableTouchmove);

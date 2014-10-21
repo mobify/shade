@@ -1,7 +1,8 @@
 define([
     'text!fixtures/shade.html',
     '$',
-    'shade'
+    'shade',
+    'touch-events'
 ], function(fixture, $) {
     var element;
 
@@ -50,6 +51,23 @@ define([
                 },
                 closed: function() {
                     done();
+                }
+            });
+
+            element.shade('open');
+        });
+
+        it('allow touchmove events if option is set to true', function(done) {
+            $('body')
+                .append(element)
+                .one('touchmove', function(e) {
+                    done();
+                });
+
+            element.shade({
+                enableTouchmove: true,
+                opened: function() {
+                    touchActionSequence(this.$shade[0], [0,0], [0, 300], 300, 60);
                 }
             });
 

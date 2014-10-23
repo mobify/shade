@@ -47,7 +47,8 @@
                 .addClass(this.options.cssClass)
                 .css({
                     background: this.options.color ? this.options.color : '',
-                    opacity: 0
+                    opacity: 0,
+                    '-webkit-tap-highlight-color': 'rgba(black, 0)'
                 })
                 .hide()
                 .on('click', function() {

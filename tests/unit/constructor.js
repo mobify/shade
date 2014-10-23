@@ -3,7 +3,7 @@ define([
     '$',
     'shade'
 ], function(fixture, $) {
-    var Pinny;
+    var Shade;
     var element;
 
     describe('Shade constructor', function() {

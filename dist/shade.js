@@ -14,7 +14,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.0.5';
+    Shade.VERSION = '1.1.0';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -24,6 +24,7 @@
         easing: 'swing',
         padding: 0,
         zIndex: 1,
+        cssClass: '',
         click: function() {
             this.close();
         },
@@ -43,6 +44,7 @@
 
             this.$shade = $('<div />')
                 .addClass('shade')
+                .addClass(this.options.cssClass)
                 .css({
                     background: this.options.color ? this.options.color : '',
                     opacity: 0

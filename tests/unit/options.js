@@ -69,7 +69,6 @@ define([
                 assert.isFunction(shade.options.click);
             });
 
-
             it('correctly defines events', function() {
                 var shade = new Shade(element);
 

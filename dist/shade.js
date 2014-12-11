@@ -14,7 +14,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.1.0';
+    Shade.VERSION = '1.2.0';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -59,6 +59,10 @@
                 .on('resize:shade', function() {
                     plugin.$shade.hasClass('shade--is-open') && plugin.setPosition.call(plugin);
                 });
+        },
+
+        destroy: function() {
+            this.$shade.remove();
         },
 
         open: function() {

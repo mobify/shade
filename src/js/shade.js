@@ -61,6 +61,10 @@
                 });
         },
 
+        destroy: function() {
+            this.$shade.remove();
+        },
+
         open: function() {
             var plugin = this;
 

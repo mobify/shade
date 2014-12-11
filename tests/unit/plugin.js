@@ -25,20 +25,20 @@ define([
         });
 
         describe('invoking shade', function() {
+            afterEach(function() {
+                $element.shade('destroy');
+            });
+
             it('creates shade instance on $element', function() {
                 $element.shade();
 
                 assert.isDefined($element.data('shade'));
-
-                $element.shade('destroy');
             });
 
             it('stores $element inside instance', function() {
                 $element.shade();
 
                 assert.isDefined($element.data('shade').$shade);
-
-                $element.shade('destroy');
             });
         });
 
@@ -49,12 +49,14 @@ define([
         });
 
         describe('invoking shade methods using the plugin interface', function() {
+            afterEach(function() {
+                $element.shade('destroy');
+            });
+
             it('opens a shade using the open method', function(done) {
                 $element.shade({
                     opened: function() {
                         assert.isTrue($element.data('shade').$shade.hasClass('shade--is-open'));
-                        $element.shade('destroy');
-
                         done();
                     }
                 });
@@ -69,8 +71,6 @@ define([
                     },
                     closed: function() {
                         assert.isFalse($element.data('shade').$shade.hasClass('shade--is-open'));
-                        $element.shade('destroy');
-
                         done();
                     }
                 });
@@ -85,8 +85,6 @@ define([
                     },
                     closed: function() {
                         assert.isFalse($element.data('shade').$shade.hasClass('shade--is-open'));
-                        $element.shade('destroy');
-
                         done();
                     }
                 });
@@ -96,21 +94,16 @@ define([
 
             it('throws for method calls that don\'t exist', function() {
                 assert.throws(function() { $element.shade().shade('noMethod'); });
-
-                $element.shade('destroy');
             });
 
             it('throws when attempting to invoke private methods', function() {
                 assert.throws(function() { $element.shade().shade('_init'); });
-
-                $element.shade('destroy');
             });
 
             it('throws when attempting to invoke methods that aren\'t functions', function() {
                 assert.throws(function() { $element.shade().shade('singleItemOpen'); });
-
-                $element.shade('destroy');
             });
+            
         });
     });
 });

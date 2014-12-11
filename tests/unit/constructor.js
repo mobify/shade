@@ -5,6 +5,7 @@ define([
 ], function(fixture, $) {
     var Pinny;
     var element;
+    var shade;
 
     describe('Shade constructor', function() {
         beforeEach(function() {
@@ -12,8 +13,12 @@ define([
             element = $(fixture);
         });
 
+        afterEach(function() {
+            shade.destroy();
+        });
+
         it('creates a shade instance', function() {
-            var shade = new Shade(element);
+            shade = new Shade(element);
 
             assert.isDefined(shade);
         });

@@ -55,13 +55,15 @@
                 })
                 .insertAfter(this.$element);
 
-            $(window)
-                .on('resize:shade', function() {
-                    plugin.$shade.hasClass('shade--is-open') && plugin.setPosition.call(plugin);
-                });
+            this.resizeShade = function() {
+                plugin.$shade.hasClass('shade--is-open') && plugin.setPosition.call(plugin);
+            };
+
+            $(window).on('resize:shade', this.resizeShade);
         },
 
         destroy: function() {
+            $(window).off('resize:shade', this.resizeShade);
             this.$shade.remove();
         },
 

@@ -2,7 +2,7 @@ define([
     'text!fixtures/shade.html',
     '$',
     'shade'
-], function(fixture, $, modalCenter) {
+], function(fixture, $) {
     var Shade;
     var element;
 
@@ -62,13 +62,19 @@ define([
                 assert.isNumber(shade.options.zIndex);
             });
 
+            it('correctly defines cssClass', function() {
+                var shade = new Shade(element);
+
+                assert.equal(shade.options.cssClass, Shade.DEFAULTS.cssClass);
+                assert.isString(shade.options.cssClass);
+            });
+
             it('correctly defines click', function() {
                 var shade = new Shade(element);
 
                 assert.equal(shade.options.click, Shade.DEFAULTS.click);
                 assert.isFunction(shade.options.click);
             });
-
 
             it('correctly defines events', function() {
                 var shade = new Shade(element);
@@ -131,7 +137,7 @@ define([
                 assert.isNumber(shade.options.zIndex);
             });
 
-            it('correctly defines a custom class', function() {
+            it('correctly defines custom CSS class', function() {
                 var shade = new Shade(element, { cssClass: 'c-class' });
 
                 assert.equal(shade.options.cssClass, 'c-class');

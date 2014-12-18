@@ -14,7 +14,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.1.0';
+    Shade.VERSION = '1.1.1';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -47,7 +47,8 @@
                 .addClass(this.options.cssClass)
                 .css({
                     background: this.options.color ? this.options.color : '',
-                    opacity: 0
+                    opacity: 0,
+                    '-webkit-tap-highlight-color': 'rgba(0,0,0,0)'
                 })
                 .hide()
                 .on('click', function() {

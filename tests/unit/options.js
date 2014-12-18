@@ -68,7 +68,7 @@ define([
             });
 
             it('correctly defines cssClass', function() {
-                var shade = new Shade(element);
+                shade = new Shade(element);
 
                 assert.equal(shade.options.cssClass, Shade.DEFAULTS.cssClass);
                 assert.isString(shade.options.cssClass);

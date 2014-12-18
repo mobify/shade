@@ -129,7 +129,6 @@
                     width: this.options.padding ? width - this.options.padding : width,
                     height: this.options.padding ? height - this.options.padding : height,
                     position: position,
-                    padding: this.options.padding,
                     zIndex: this.options.zIndex || $element.css('zIndex') + 1
                 });
         }

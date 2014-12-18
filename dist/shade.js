@@ -22,7 +22,7 @@
         opacity: '0.25',
         duration: 150,
         easing: 'swing',
-        padding: 0,
+        padding: 10,
         zIndex: 1,
         cssClass: '',
         click: function() {
@@ -122,10 +122,10 @@
 
             this.$shade
                 .css({
-                    left: this.options.padding ? -this.options.padding : -10,
-                    top: this.options.padding ? -this.options.padding : -10,
-                    bottom: this.options.padding ? -this.options.padding : -10,
-                    right: this.options.padding ? -this.options.padding : -10,
+                    left: -this.options.padding,
+                    top: -this.options.padding,
+                    bottom: -this.options.padding,
+                    right: -this.options.padding,
                     width: this.options.padding ? width - this.options.padding : width,
                     height: this.options.padding ? height - this.options.padding : height,
                     position: position,

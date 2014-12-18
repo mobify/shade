@@ -51,7 +51,7 @@ define([
             it('correctly defines padding', function() {
                 var shade = new Shade(element);
 
-                assert.equal(shade.options.padding, 0);
+                assert.equal(shade.options.padding, 10);
                 assert.isNumber(shade.options.padding);
             });
 

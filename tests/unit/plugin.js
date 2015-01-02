@@ -92,6 +92,26 @@ define([
                 $element.shade('open');
             });
 
+            it('sets shade\'s position when window resizing', function(done) {
+                var shade;
+                var setPositionFn;
+
+                $element
+                    .shade({
+                        opened: function() {
+                            $(window).trigger('resize');
+                        }
+                    })
+                    .shade('open');
+
+                shade = $element.data('shade');
+                setPositionFn = shade.setPosition;
+                shade.setPosition = function() {
+                    setPositionFn.call(this);
+                    done();
+                };
+            });
+
             it('throws for method calls that don\'t exist', function() {
                 assert.throws(function() { $element.shade().shade('noMethod'); });
             });

@@ -96,7 +96,7 @@
                     easing: this.options.easing,
                     complete: function() {
                         plugin.$shade
-                            .addClass('shade--is-open')
+                            .addClass(classes.OPENED)
                             .on('touchmove', function() {
                                 return false;
                             });

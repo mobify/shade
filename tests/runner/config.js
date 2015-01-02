@@ -8,7 +8,7 @@ require.config({
         'chai': 'node_modules/chai/chai',
         'mocha': 'node_modules/mocha/mocha',
         'plugin': 'bower_components/plugin/dist/plugin.min',
-        'shade': 'dist/shade.min'
+        'shade': 'dist/shade'
     },
     'shim': {
         'mocha': {

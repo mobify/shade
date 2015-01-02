@@ -3,57 +3,61 @@ define([
     '$',
     'shade'
 ], function(fixture, $) {
-    var element;
+    var $element;
 
     describe('Shade events', function() {
         beforeEach(function() {
-            element = $(fixture);
+            $element = $(fixture);
+        });
+
+        afterEach(function() {
+            $element.shade('destroy');
         });
 
         it('fires the open event when shade is opened', function(done) {
-            element.shade({
+            $element.shade({
                 open: function() {
                     done();
                 }
             });
 
-            element.shade('open');
+            $element.shade('open');
         });
 
         it('fires the opened event when shade is opened', function(done) {
-            element.shade({
+            $element.shade({
                 opened: function() {
                     done();
                 }
             });
 
-            element.shade('open');
+            $element.shade('open');
         });
 
         it('fires the close event when shade is closed', function(done) {
-            element.shade({
+            $element.shade({
                 opened: function() {
-                    element.shade('close');
+                    $element.shade('close');
                 },
                 close: function() {
                     done();
                 }
             });
 
-            element.shade('open');
+            $element.shade('open');
         });
 
         it('fires the closed event when shade is closed', function(done) {
-            element.shade({
+            $element.shade({
                 opened: function() {
-                    element.shade('close');
+                    $element.shade('close');
                 },
                 closed: function() {
                     done();
                 }
             });
 
-            element.shade('open');
+            $element.shade('open');
         });
     });
 });

@@ -10,11 +10,21 @@
         factory(framework, window.Plugin, framework.Velocity);
     }
 }(function($, Plugin, Velocity) {
+    var classes = {
+        SHADE: 'shade',
+        OPENED: 'shade--is-open'
+    };
+
+    var events = {
+        resize: 'resize.shade',
+        click: 'click.shade'
+    };
+
     function Shade(element, options) {
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.0.6';
+    Shade.VERSION = '1.1.0';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -43,7 +53,7 @@
             this.isBody = $(this.options.cover).is('body');
 
             this.$shade = $('<div />')
-                .addClass('shade')
+                .addClass(classes.SHADE)
                 .addClass(this.options.cssClass)
                 .css({
                     background: this.options.color ? this.options.color : '',
@@ -51,15 +61,21 @@
                     '-webkit-tap-highlight-color': 'rgba(0,0,0,0)'
                 })
                 .hide()
-                .on('click', function() {
+                .on(events.click, function() {
                     plugin.options.click && plugin.options.click.call(plugin);
                 })
                 .insertAfter(this.$element);
 
-            $(window)
-                .on('resize:shade', function() {
-                    plugin.$shade.hasClass('shade--is-open') && plugin.setPosition.call(plugin);
-                });
+            this._resize = function() {
+                plugin.$shade.hasClass(classes.OPENED) && plugin.setPosition.call(plugin);
+            };
+
+            $(window).on(events.resize, this._resize);
+        },
+
+        destroy: function() {
+            $(window).off(events.resize, this._resize);
+            this.$shade.remove();
         },
 
         open: function() {

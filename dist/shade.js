@@ -35,6 +35,7 @@
         padding: 0,
         zIndex: 1,
         cssClass: '',
+        append: 'insertAfter',
         click: function() {
             this.close();
         },
@@ -64,7 +65,7 @@
                 .on(events.click, function() {
                     plugin.options.click && plugin.options.click.call(plugin);
                 })
-                .insertAfter(this.$element);
+                [this.options.append](this.$element);
 
             this._resize = function() {
                 plugin.$shade.hasClass(classes.OPENED) && plugin.setPosition.call(plugin);
@@ -91,12 +92,13 @@
                     opacity: this.options.opacity
                 },
                 {
+                    queue: false,
                     display: 'block',
                     duration: this.options.duration,
                     easing: this.options.easing,
                     complete: function() {
                         plugin.$shade
-                            .addClass('shade--is-open')
+                            .addClass(classes.OPENED)
                             .on('touchmove', function() {
                                 return false;
                             });
@@ -114,8 +116,11 @@
 
             Velocity.animate(
                 this.$shade,
-                'reverse',
                 {
+                    opacity: 0
+                },
+                {
+                    queue: false,
                     display: 'none',
                     duration: this.options.duration,
                     easing: this.options.easing,

@@ -75,6 +75,7 @@
 
         destroy: function() {
             $(window).off(events.resize, this._resize);
+            this.$element.removeData(this.name);
             this.$shade.remove();
         },
 
@@ -121,7 +122,7 @@
                     easing: this.options.easing,
                     complete: function() {
                         plugin.$shade
-                            .removeClass('shade--is-open')
+                            .removeClass(classes.OPENED)
                             .off('touchmove');
 
                         plugin._trigger('closed');

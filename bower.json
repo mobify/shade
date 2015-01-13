@@ -16,7 +16,7 @@
     "./!(src|dist|lib|templates)"
   ],
   "dependencies": {
-    "plugin": "mobify/plugin#returnable-methods",
+    "plugin": "~3.0.0",
     "mobify-velocity": "1.1.2",
     "requirejs-text": "~2.0.12",
     "requirejs": "~2.1.14"

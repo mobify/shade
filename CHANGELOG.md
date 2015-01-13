@@ -1,3 +1,5 @@
+1.1.1
+    - Updated version of plugin factory
 1.1.0
     - Added `destroy` function
     - Adds option 'cssClass' to define custom class on shade element

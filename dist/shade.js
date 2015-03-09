@@ -24,7 +24,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '1.1.0';
+    Shade.VERSION = '1.1.1';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -76,6 +76,7 @@
 
         destroy: function() {
             $(window).off(events.resize, this._resize);
+            this.$element.removeData(this.name);
             this.$shade.remove();
         },
 
@@ -126,7 +127,7 @@
                     easing: this.options.easing,
                     complete: function() {
                         plugin.$shade
-                            .removeClass('shade--is-open')
+                            .removeClass(classes.OPENED)
                             .off('touchmove');
 
                         plugin._trigger('closed');

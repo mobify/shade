@@ -24,7 +24,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
-    Shade.VERSION = '0';
+    Shade.VERSION = '1.1.1';
 
     Shade.DEFAULTS = {
         cover: document.body,
@@ -134,6 +134,10 @@
                     }
                 }
             );
+        },
+
+        getElement: function() {
+            return this.$shade;
         },
 
         setPosition: function() {

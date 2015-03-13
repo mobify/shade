@@ -136,6 +136,10 @@
             );
         },
 
+        getElement: function() {
+            return this.$shade;
+        },
+
         setPosition: function() {
             var $element = this.$element;
             var width = this.isBody ? 'auto' : $element.width();

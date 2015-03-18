@@ -24,6 +24,9 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
+    // Correct version will be filled in by grunt-version task
+    Shade.VERSION = '0';
+
     Shade.DEFAULTS = {
         cover: document.body,
         color: 'black',

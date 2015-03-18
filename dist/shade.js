@@ -24,6 +24,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
+    // Correct version will be filled in by grunt-version task
     Shade.VERSION = '1.1.1';
 
     Shade.DEFAULTS = {

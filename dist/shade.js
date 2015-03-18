@@ -24,6 +24,7 @@
         Shade.__super__.call(this, element, options, Shade.DEFAULTS);
     }
 
+    // Correct version will be filled in by grunt-version task
     Shade.VERSION = '1.1.1';
 
     Shade.DEFAULTS = {
@@ -35,6 +36,7 @@
         padding: 0,
         zIndex: 1,
         cssClass: '',
+        append: 'insertAfter',
         click: function() {
             this.close();
         },
@@ -64,7 +66,7 @@
                 .on(events.click, function() {
                     plugin.options.click && plugin.options.click.call(plugin);
                 })
-                .insertAfter(this.$element);
+                [this.options.append](this.$element);
 
             this._resize = function() {
                 plugin.$shade.hasClass(classes.OPENED) && plugin.setPosition.call(plugin);
@@ -92,6 +94,7 @@
                     opacity: this.options.opacity
                 },
                 {
+                    queue: false,
                     display: 'block',
                     duration: this.options.duration,
                     easing: this.options.easing,
@@ -115,8 +118,11 @@
 
             Velocity.animate(
                 this.$shade,
-                'reverse',
                 {
+                    opacity: 0
+                },
+                {
+                    queue: false,
                     display: 'none',
                     duration: this.options.duration,
                     easing: this.options.easing,
@@ -129,6 +135,10 @@
                     }
                 }
             );
+        },
+
+        getElement: function() {
+            return this.$shade;
         },
 
         setPosition: function() {
